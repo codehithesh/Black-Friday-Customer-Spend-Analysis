@@ -1,3 +1,5 @@
+![alt text](https://github.com/codehithesh/Black-Friday-Customer-Spend-Analysis/blob/main/assets/banner.jpg)
+
 # Do Women Spend More Than Men on Black Friday? Customer Spend Analysis
 Hypothesis testing and CLT confidence intervals on Black Friday retail transactions: spend differences by gender, age, city, and marital status.
 
