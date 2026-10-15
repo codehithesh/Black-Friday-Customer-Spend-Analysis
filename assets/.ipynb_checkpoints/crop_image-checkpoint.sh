@@ -16,7 +16,7 @@ Positions: top-left, top-right, bottom-left, bottom-right
 # Default values
 WIDTH=900
 HEIGHT=339
-POSITION="top-left"
+POSITION="center"
 INPUT_IMAGE=""
 OUTPUT_IMAGE=""
 
@@ -37,7 +37,7 @@ done
 if [ -z "$INPUT_IMAGE" ] || [ -z "$OUTPUT_IMAGE" ]; then
     echo "Error: Missing required arguments."
     echo "Usage: $0 -i <input_image> -o <output_image> [-w width] [-h height] [-p position]"
-    echo "Positions: top-left, top-right, bottom-left, bottom-right"
+    echo "Positions: center, top-left, top-right, bottom-left, bottom-right"
     exit 1
 fi
 
@@ -67,8 +67,19 @@ try:
     with Image.open(input_path) as img:
         img_w, img_h = img.size
         
+        # Validate that image is large enough for the crop
+        if width > img_w or height > img_h:
+            print(f"Error: Target size ({width}x{height}) is larger than image size ({img_w}x{img_h}).")
+            sys.exit(1)
+        
         # Calculate bounding box (left, upper, right, lower) based on position
-        if position == "top-left":
+        if position == "center":
+            left = (img_w - width) // 2
+            upper = (img_h - height) // 2
+            right = left + width
+            lower = upper + height
+            box = (left, upper, right, lower)
+        elif position == "top-left":
             box = (0, 0, width, height)
         elif position == "top-right":
             box = (img_w - width, 0, img_w, height)
@@ -77,7 +88,7 @@ try:
         elif position == "bottom-right":
             box = (img_w - width, img_h - height, img_w, img_h)
         else:
-            print(f"Error: Invalid position '{position}'. Choose from top-left, top-right, bottom-left, bottom-right.")
+            print(f"Error: Invalid position '{position}'. Choose from center, top-left, top-right, bottom-left, bottom-right.")
             sys.exit(1)
             
         cropped_img = img.crop(box)
