@@ -8,6 +8,12 @@ Hypothesis testing and CLT confidence intervals on Black Friday retail transacti
 * **Where the value is:** Ages 26-45 and City B make up the largest share of revenue, driven by customer volume rather than higher order value.
 * **Implication:** If prioritizing segments for targeting, start with these. Confirming ROI needs cost and response data this dataset lacks.
 
+## Watch Video Presentation
+
+<a href="https://www.youtube.com/watch?v=c316uVDjDFY" target="_blank">
+  <img src="https://img.youtube.com/vi/c316uVDjDFY/hqdefault.jpg" alt="Watch Video on YouTube" width="400" />
+</a>
+
 ## About Business
 Walmart is an American multinational retail corporation that operates a chain of supercenters, discount departmental stores, and grocery stores from the United States. Walmart has more than 100 million customers worldwide.
 
